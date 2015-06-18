@@ -47,7 +47,7 @@ int main (int argc, char **argv)
 				{
 					hv.at<uchar>(Point(h, v))++;
 				}
-				count = hv.at<uchar>(Point(h, s));
+				count = hs.at<uchar>(Point(h, s));
 				if (count < 255)
 				{
 					hs.at<uchar>(Point(h, s))++;
