@@ -1,7 +1,7 @@
 /*
  *
  */
-
+#include <stdio.h>
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -54,6 +54,10 @@ int main (int argc, char **argv)
 				}
 			}
 		}
+		//double minVal, maxVal;
+		//Point minLoc, maxLoc;
+		//minMaxLoc(hv, NULL, &maxVal, NULL, &maxLoc);
+		//printf("Hue:%s Val:%d\n", maxLoc.x, maxLoc.y);
 		imshow("Hue-Val", hv);
 		imshow("Hue-Sat", hs);
 		imshow("Hue", channels[0] * 1.4);
