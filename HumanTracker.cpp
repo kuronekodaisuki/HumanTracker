@@ -34,6 +34,7 @@ int main (int argc, char **argv)
 
 		hv.setTo(Scalar(0));
 		hs.setTo(Scalar(0));
+
 		for (int y = 0; y < hsv.rows; y++)
 		{
 			Point3_<uchar> *row = hsv.ptr< Point3_<uchar> >(y);
@@ -42,15 +43,15 @@ int main (int argc, char **argv)
 				uchar h = row[x].x;
 				uchar s = row[x].y;
 				uchar v = row[x].z;
-				uchar count = hv.at<uchar>(Point(h, v));
+				uchar count = hv.at<uchar>(Point(v, h));
 				if (count < 255)
 				{
-					hv.at<uchar>(Point(h, v))++;
+					hv.at<uchar>(Point(v, h))++;
 				}
-				count = hs.at<uchar>(Point(h, s));
+				count = hs.at<uchar>(Point(s, h));
 				if (count < 255)
 				{
-					hs.at<uchar>(Point(h, s))++;
+					hs.at<uchar>(Point(s, h))++;
 				}
 			}
 		}
@@ -58,10 +59,10 @@ int main (int argc, char **argv)
 		//Point minLoc, maxLoc;
 		//minMaxLoc(hv, NULL, &maxVal, NULL, &maxLoc);
 		//printf("Hue:%s Val:%d\n", maxLoc.x, maxLoc.y);
+
 		imshow("Hue-Val", hv);
 		imshow("Hue-Sat", hs);
-		imshow("Hue", channels[0] * 1.4);
-
+		imshow("Hue", channels[0]);
 	}
 
 }
